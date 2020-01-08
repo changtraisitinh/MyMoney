@@ -1,0 +1,396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		842E567223C5860000DF4628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567123C5860000DF4628 /* AppDelegate.swift */; };
+		842E567423C5860000DF4628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567323C5860000DF4628 /* SceneDelegate.swift */; };
+		842E567B23C5860000DF4628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E567923C5860000DF4628 /* Main.storyboard */; };
+		842E567E23C5860000DF4628 /* MyMoney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 842E567C23C5860000DF4628 /* MyMoney.xcdatamodeld */; };
+		842E568023C5860200DF4628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842E567F23C5860200DF4628 /* Assets.xcassets */; };
+		842E568323C5860200DF4628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E568123C5860200DF4628 /* LaunchScreen.storyboard */; };
+		842E568B23C5894C00DF4628 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E568A23C5894C00DF4628 /* TransactionsViewController.swift */; };
+		842E568D23C5899300DF4628 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E568C23C5899300DF4628 /* ReportsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		842E566E23C5860000DF4628 /* MyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		842E567123C5860000DF4628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		842E567323C5860000DF4628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		842E567A23C5860000DF4628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		842E567D23C5860000DF4628 /* MyMoney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMoney.xcdatamodel; sourceTree = "<group>"; };
+		842E567F23C5860200DF4628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		842E568223C5860200DF4628 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		842E568423C5860200DF4628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		842E568A23C5894C00DF4628 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		842E568C23C5899300DF4628 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		842E566B23C5860000DF4628 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		842E566523C5860000DF4628 = {
+			isa = PBXGroup;
+			children = (
+				842E567023C5860000DF4628 /* MyMoney */,
+				842E566F23C5860000DF4628 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		842E566F23C5860000DF4628 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				842E566E23C5860000DF4628 /* MyMoney.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		842E567023C5860000DF4628 /* MyMoney */ = {
+			isa = PBXGroup;
+			children = (
+				842E569123C58A9A00DF4628 /* SupportFiles */,
+				842E569023C58A4F00DF4628 /* Models */,
+				842E568F23C58A4600DF4628 /* Views */,
+				842E568E23C58A3800DF4628 /* Controllers */,
+			);
+			path = MyMoney;
+			sourceTree = "<group>";
+		};
+		842E568E23C58A3800DF4628 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				842E568A23C5894C00DF4628 /* TransactionsViewController.swift */,
+				842E568C23C5899300DF4628 /* ReportsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		842E568F23C58A4600DF4628 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		842E569023C58A4F00DF4628 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		842E569123C58A9A00DF4628 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				842E567123C5860000DF4628 /* AppDelegate.swift */,
+				842E567323C5860000DF4628 /* SceneDelegate.swift */,
+				842E567923C5860000DF4628 /* Main.storyboard */,
+				842E567F23C5860200DF4628 /* Assets.xcassets */,
+				842E568123C5860200DF4628 /* LaunchScreen.storyboard */,
+				842E568423C5860200DF4628 /* Info.plist */,
+				842E567C23C5860000DF4628 /* MyMoney.xcdatamodeld */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		842E566D23C5860000DF4628 /* MyMoney */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 842E568723C5860200DF4628 /* Build configuration list for PBXNativeTarget "MyMoney" */;
+			buildPhases = (
+				842E566A23C5860000DF4628 /* Sources */,
+				842E566B23C5860000DF4628 /* Frameworks */,
+				842E566C23C5860000DF4628 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyMoney;
+			productName = MyMoney;
+			productReference = 842E566E23C5860000DF4628 /* MyMoney.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		842E566623C5860000DF4628 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = changtraisitinh;
+				TargetAttributes = {
+					842E566D23C5860000DF4628 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 842E566923C5860000DF4628 /* Build configuration list for PBXProject "MyMoney" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 842E566523C5860000DF4628;
+			productRefGroup = 842E566F23C5860000DF4628 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				842E566D23C5860000DF4628 /* MyMoney */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		842E566C23C5860000DF4628 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				842E568323C5860200DF4628 /* LaunchScreen.storyboard in Resources */,
+				842E568023C5860200DF4628 /* Assets.xcassets in Resources */,
+				842E567B23C5860000DF4628 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		842E566A23C5860000DF4628 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				842E567E23C5860000DF4628 /* MyMoney.xcdatamodeld in Sources */,
+				842E567223C5860000DF4628 /* AppDelegate.swift in Sources */,
+				842E568D23C5899300DF4628 /* ReportsViewController.swift in Sources */,
+				842E568B23C5894C00DF4628 /* TransactionsViewController.swift in Sources */,
+				842E567423C5860000DF4628 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		842E567923C5860000DF4628 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				842E567A23C5860000DF4628 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		842E568123C5860200DF4628 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				842E568223C5860200DF4628 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		842E568523C5860200DF4628 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		842E568623C5860200DF4628 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		842E568823C5860200DF4628 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43LR6N5D97;
+				INFOPLIST_FILE = MyMoney/SupportFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.changtraisitinh.MyMoney;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		842E568923C5860200DF4628 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 43LR6N5D97;
+				INFOPLIST_FILE = MyMoney/SupportFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.changtraisitinh.MyMoney;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		842E566923C5860000DF4628 /* Build configuration list for PBXProject "MyMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				842E568523C5860200DF4628 /* Debug */,
+				842E568623C5860200DF4628 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		842E568723C5860200DF4628 /* Build configuration list for PBXNativeTarget "MyMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				842E568823C5860200DF4628 /* Debug */,
+				842E568923C5860200DF4628 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		842E567C23C5860000DF4628 /* MyMoney.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				842E567D23C5860000DF4628 /* MyMoney.xcdatamodel */,
+			);
+			currentVersion = 842E567D23C5860000DF4628 /* MyMoney.xcdatamodel */;
+			path = MyMoney.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 842E566623C5860000DF4628 /* Project object */;
+}
