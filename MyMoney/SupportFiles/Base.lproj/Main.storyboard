@@ -169,9 +169,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="More" width="40" height="40"/>
-        <image name="Planing" width="40" height="40"/>
-        <image name="Reports" width="40" height="40"/>
-        <image name="Transactions" width="40" height="40"/>
+        <image name="More" width="29" height="29"/>
+        <image name="Planing" width="29" height="29"/>
+        <image name="Reports" width="29" height="29"/>
+        <image name="Transactions" width="29" height="29"/>
     </resources>
 </document>

@@ -7,5 +7,6 @@ target 'MyMoney' do
 
   # Pods for MyMoney
   pod 'RAMAnimatedTabBarController'
+  pod 'Parchment'
 
 end

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		842E568323C5860200DF4628 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E568123C5860200DF4628 /* LaunchScreen.storyboard */; };
 		842E568B23C5894C00DF4628 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E568A23C5894C00DF4628 /* TransactionsViewController.swift */; };
 		842E568D23C5899300DF4628 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E568C23C5899300DF4628 /* ReportsViewController.swift */; };
+		842E569523C5E6A800DF4628 /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E569423C5E6A800DF4628 /* UIView+constraints.swift */; };
 		E7B352F73648745B9B9BC930 /* Pods_MyMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04259DAD1CD763878E98E3B /* Pods_MyMoney.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		842E568423C5860200DF4628 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842E568A23C5894C00DF4628 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		842E568C23C5899300DF4628 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		842E569423C5E6A800DF4628 /* UIView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
 		E04259DAD1CD763878E98E3B /* Pods_MyMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 		842E567023C5860000DF4628 /* MyMoney */ = {
 			isa = PBXGroup;
 			children = (
+				842E569323C5E68300DF4628 /* Common */,
 				842E569123C58A9A00DF4628 /* SupportFiles */,
 				842E569023C58A4F00DF4628 /* Models */,
 				842E568F23C58A4600DF4628 /* Views */,
@@ -112,13 +115,20 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
+		842E569323C5E68300DF4628 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				842E569423C5E6A800DF4628 /* UIView+constraints.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		B2FECF73C1C28D64EE67E303 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				7838E7D3315B5C30E9008066 /* Pods-MyMoney.debug.xcconfig */,
 				67210FA924A18A94034C9F12 /* Pods-MyMoney.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -246,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				842E567E23C5860000DF4628 /* MyMoney.xcdatamodeld in Sources */,
+				842E569523C5E6A800DF4628 /* UIView+constraints.swift in Sources */,
 				842E567223C5860000DF4628 /* AppDelegate.swift in Sources */,
 				842E568D23C5899300DF4628 /* ReportsViewController.swift in Sources */,
 				842E568B23C5894C00DF4628 /* TransactionsViewController.swift in Sources */,

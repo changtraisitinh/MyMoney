@@ -1,16 +1,20 @@
 PODS:
+  - Parchment (1.7.0)
   - RAMAnimatedTabBarController (5.1.0)
 
 DEPENDENCIES:
+  - Parchment
   - RAMAnimatedTabBarController
 
 SPEC REPOS:
   trunk:
+    - Parchment
     - RAMAnimatedTabBarController
 
 SPEC CHECKSUMS:
+  Parchment: cae686f73685d16742cec9c19239b7578a15f0f5
   RAMAnimatedTabBarController: b5c821298071fded801532216ad8a24394f89859
 
-PODFILE CHECKSUM: 947fba9620cb7b723ae0a8635f242b69c9666c54
+PODFILE CHECKSUM: aa6d9fb684a89b372b34f1f549840a99bf29462f
 
 COCOAPODS: 1.8.4
