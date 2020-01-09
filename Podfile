@@ -8,5 +8,6 @@ target 'MyMoney' do
   # Pods for MyMoney
   pod 'RAMAnimatedTabBarController'
   pod 'Parchment'
+  pod 'TimelineTableViewCell'
 
 end

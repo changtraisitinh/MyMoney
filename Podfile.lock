@@ -1,20 +1,24 @@
 PODS:
   - Parchment (1.7.0)
   - RAMAnimatedTabBarController (5.1.0)
+  - TimelineTableViewCell (2.2.1)
 
 DEPENDENCIES:
   - Parchment
   - RAMAnimatedTabBarController
+  - TimelineTableViewCell
 
 SPEC REPOS:
   trunk:
     - Parchment
     - RAMAnimatedTabBarController
+    - TimelineTableViewCell
 
 SPEC CHECKSUMS:
   Parchment: cae686f73685d16742cec9c19239b7578a15f0f5
   RAMAnimatedTabBarController: b5c821298071fded801532216ad8a24394f89859
+  TimelineTableViewCell: b2721a3c1f17c4a4950ae442f45cd4e8669a2750
 
-PODFILE CHECKSUM: aa6d9fb684a89b372b34f1f549840a99bf29462f
+PODFILE CHECKSUM: 8b2a1f7f09f0a4f383f9fe1bd2167bbcec0c5b6a
 
 COCOAPODS: 1.8.4
