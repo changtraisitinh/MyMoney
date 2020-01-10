@@ -1,10 +1,12 @@
 PODS:
+  - Floaty (4.2.0)
   - Parchment (1.7.0)
   - RAMAnimatedTabBarController (5.1.0)
   - SunburstDiagram (1.1.0)
   - TimelineTableViewCell (2.2.1)
 
 DEPENDENCIES:
+  - Floaty (~> 4.2.0)
   - Parchment
   - RAMAnimatedTabBarController
   - SunburstDiagram (~> 1.1.0)
@@ -12,17 +14,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Floaty
     - Parchment
     - RAMAnimatedTabBarController
     - SunburstDiagram
     - TimelineTableViewCell
 
 SPEC CHECKSUMS:
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   Parchment: cae686f73685d16742cec9c19239b7578a15f0f5
   RAMAnimatedTabBarController: b5c821298071fded801532216ad8a24394f89859
   SunburstDiagram: 156620d9fe81d87156291ae4e3d9391a67b9d0e4
   TimelineTableViewCell: b2721a3c1f17c4a4950ae442f45cd4e8669a2750
 
-PODFILE CHECKSUM: 55da8870c86dc6d57ac2c98602edfc1433372787
+PODFILE CHECKSUM: 91a6246186c21269b5cbbb12a4e7f08dad9eccd5
 
 COCOAPODS: 1.8.4

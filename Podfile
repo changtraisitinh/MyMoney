@@ -10,5 +10,6 @@ target 'MyMoney' do
   pod 'Parchment'
   pod 'TimelineTableViewCell'
   pod 'SunburstDiagram', '~> 1.1.0'
+  pod 'Floaty', '~> 4.2.0'
 
 end

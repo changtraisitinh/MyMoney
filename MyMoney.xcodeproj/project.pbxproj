@@ -12,6 +12,7 @@
 		841E2D7123C8150600CF440C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7023C8150600CF440C /* SettingsView.swift */; };
 		841E2D7323C8152700CF440C /* SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7223C8152700CF440C /* SettingsNodesView.swift */; };
 		841E2D7523C8154B00CF440C /* SettingsNewNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7423C8154B00CF440C /* SettingsNewNodeView.swift */; };
+		841E2D7823C883C900CF440C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841E2D7723C883C800CF440C /* Icons.xcassets */; };
 		842E567223C5860000DF4628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567123C5860000DF4628 /* AppDelegate.swift */; };
 		842E567423C5860000DF4628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567323C5860000DF4628 /* SceneDelegate.swift */; };
 		842E567B23C5860000DF4628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E567923C5860000DF4628 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		841E2D7023C8150600CF440C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		841E2D7223C8152700CF440C /* SettingsNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNodesView.swift; sourceTree = "<group>"; };
 		841E2D7423C8154B00CF440C /* SettingsNewNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNewNodeView.swift; sourceTree = "<group>"; };
+		841E2D7723C883C800CF440C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		842E566E23C5860000DF4628 /* MyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842E567123C5860000DF4628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		842E567323C5860000DF4628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,8 +91,8 @@
 		842E567023C5860000DF4628 /* MyMoney */ = {
 			isa = PBXGroup;
 			children = (
-				842E569323C5E68300DF4628 /* Common */,
 				842E569123C58A9A00DF4628 /* SupportFiles */,
+				842E569323C5E68300DF4628 /* Common */,
 				842E569023C58A4F00DF4628 /* Models */,
 				842E568F23C58A4600DF4628 /* Views */,
 				842E568E23C58A3800DF4628 /* Controllers */,
@@ -126,6 +128,7 @@
 		842E569123C58A9A00DF4628 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				841E2D7723C883C800CF440C /* Icons.xcassets */,
 				842E567123C5860000DF4628 /* AppDelegate.swift */,
 				842E567323C5860000DF4628 /* SceneDelegate.swift */,
 				842E567923C5860000DF4628 /* Main.storyboard */,
@@ -225,6 +228,7 @@
 			files = (
 				842E568323C5860200DF4628 /* LaunchScreen.storyboard in Resources */,
 				842E568023C5860200DF4628 /* Assets.xcassets in Resources */,
+				841E2D7823C883C900CF440C /* Icons.xcassets in Resources */,
 				842E567B23C5860000DF4628 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,11 @@
 
 import UIKit
 import TimelineTableViewCell
+import Floaty
 
-class TimelineTransactionsViewController: UITableViewController {
+class TimelineTransactionsViewController: UITableViewController, FloatyDelegate {
+    
+    var floaty = Floaty()
 
     let day:[String] = ["01/01/2020", "23/02/2020"]
     
@@ -51,6 +54,11 @@ class TimelineTransactionsViewController: UITableViewController {
         let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell",
             bundle: Bundle(url: nibUrl!)!)
         tableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
+        
+        floaty.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
+        layoutFAB()
+//        floaty.addDragging()
+        
         
     }
 
@@ -180,5 +188,62 @@ class TimelineTransactionsViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // MARK: - Floaty
+    func layoutFAB() {
+      let item = FloatyItem()
+      item.hasShadow = false
+      item.buttonColor = UIColor.blue
+      item.circleShadowColor = UIColor.red
+      item.titleShadowColor = UIColor.blue
+      item.titleLabelPosition = .right
+      item.title = ""
+      item.handler = { item in
+        
+      }
+      
+      floaty.hasShadow = false
+//      floaty.addItem(title: "I got a title")
+      floaty.addItem("", icon: UIImage(named: "icShare"))
+      floaty.addItem("", icon: UIImage(named: "icMap")) { item in
+        let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+      }
+//      floaty.addItem(item: item)
+//      floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
+      floaty.paddingX = self.view.frame.width/2 - floaty.frame.width*3
+      floaty.paddingY = 100
+      floaty.fabDelegate = self
+      
+      self.view.addSubview(floaty)
+      
+    }
+    
+    // MARK: - Floaty Delegate Methods
+    func floatyWillOpen(_ floaty: Floaty) {
+      print("Floaty Will Open")
+    }
+    
+    func floatyDidOpen(_ floaty: Floaty) {
+      print("Floaty Did Open")
+    }
+    
+    func floatyWillClose(_ floaty: Floaty) {
+      print("Floaty Will Close")
+    }
+    
+    func floatyDidClose(_ floaty: Floaty) {
+      print("Floaty Did Close")
+    }
+    
+//    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        if velocity.y > 0 {
+//            floaty.isHidden = true
+//        } else {
+//            floaty.isHidden = false
+//        }
+//    }
 
 }

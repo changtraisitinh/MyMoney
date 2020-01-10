@@ -58,6 +58,7 @@ struct RootView: View {
                             Text("10,000,000 ₫")
                             SunburstView(configuration: self.configurationIncome)
                         }
+                        Divider().edgesIgnoringSafeArea(.leading)
                         
                         VStack(spacing: 0) {
                             Spacer().frame(height: 50)
