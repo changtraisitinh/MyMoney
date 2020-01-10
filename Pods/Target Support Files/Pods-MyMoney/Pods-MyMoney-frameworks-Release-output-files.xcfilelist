@@ -1,3 +1,4 @@
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SunburstDiagram.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TimelineTableViewCell.framework

@@ -9,5 +9,6 @@ target 'MyMoney' do
   pod 'RAMAnimatedTabBarController'
   pod 'Parchment'
   pod 'TimelineTableViewCell'
+  pod 'SunburstDiagram', '~> 1.1.0'
 
 end

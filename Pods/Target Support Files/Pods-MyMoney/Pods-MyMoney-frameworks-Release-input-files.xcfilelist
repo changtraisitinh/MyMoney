@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-MyMoney/Pods-MyMoney-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework
 ${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework
+${BUILT_PRODUCTS_DIR}/SunburstDiagram/SunburstDiagram.framework
 ${BUILT_PRODUCTS_DIR}/TimelineTableViewCell/TimelineTableViewCell.framework
