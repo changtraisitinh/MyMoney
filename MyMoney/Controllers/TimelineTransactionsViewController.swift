@@ -205,11 +205,15 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
       
       floaty.hasShadow = false
 //      floaty.addItem(title: "I got a title")
-      floaty.addItem("", icon: UIImage(named: "icShare"))
-      floaty.addItem("", icon: UIImage(named: "icMap")) { item in
-        let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+//      floaty.addItem("", icon: UIImage(named: "icShare"))
+      floaty.addItem("Add transaction", icon: UIImage(named: "icMap")) { item in
+//        let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+        
+        let story = UIStoryboard(name: "Main", bundle: nil)
+        let vc = story.instantiateViewController(withIdentifier: "navAddTransactions") as! UINavigationController
+        self.present(vc, animated: true, completion: nil)
       }
 //      floaty.addItem(item: item)
 //      floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
@@ -224,6 +228,8 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     // MARK: - Floaty Delegate Methods
     func floatyWillOpen(_ floaty: Floaty) {
       print("Floaty Will Open")
+        
+        
     }
     
     func floatyDidOpen(_ floaty: Floaty) {

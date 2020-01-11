@@ -13,6 +13,12 @@
 		841E2D7323C8152700CF440C /* SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7223C8152700CF440C /* SettingsNodesView.swift */; };
 		841E2D7523C8154B00CF440C /* SettingsNewNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7423C8154B00CF440C /* SettingsNewNodeView.swift */; };
 		841E2D7823C883C900CF440C /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841E2D7723C883C800CF440C /* Icons.xcassets */; };
+		841E2D7A23C8C3DC00CF440C /* SelectCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7923C8C3DC00CF440C /* SelectCategoryTableViewController.swift */; };
+		841E2D7D23C9D1F200CF440C /* AddTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7C23C9D1F200CF440C /* AddTransactionsCell.swift */; };
+		841E2D7F23C9D9F100CF440C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D7E23C9D9F100CF440C /* Transaction.swift */; };
+		841E2D8123C9ED7200CF440C /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D8023C9ED7100CF440C /* AddTransactionViewController.swift */; };
+		841E2D8323CA049500CF440C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D8223CA049500CF440C /* CategoryCell.swift */; };
+		841E2D8523CA0BDD00CF440C /* CategoryImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D8423CA0BDD00CF440C /* CategoryImages.swift */; };
 		842E567223C5860000DF4628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567123C5860000DF4628 /* AppDelegate.swift */; };
 		842E567423C5860000DF4628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567323C5860000DF4628 /* SceneDelegate.swift */; };
 		842E567B23C5860000DF4628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E567923C5860000DF4628 /* Main.storyboard */; };
@@ -34,6 +40,12 @@
 		841E2D7223C8152700CF440C /* SettingsNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNodesView.swift; sourceTree = "<group>"; };
 		841E2D7423C8154B00CF440C /* SettingsNewNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNewNodeView.swift; sourceTree = "<group>"; };
 		841E2D7723C883C800CF440C /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		841E2D7923C8C3DC00CF440C /* SelectCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryTableViewController.swift; sourceTree = "<group>"; };
+		841E2D7C23C9D1F200CF440C /* AddTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionsCell.swift; sourceTree = "<group>"; };
+		841E2D7E23C9D9F100CF440C /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		841E2D8023C9ED7100CF440C /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		841E2D8223CA049500CF440C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		841E2D8423CA0BDD00CF440C /* CategoryImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryImages.swift; sourceTree = "<group>"; };
 		842E566E23C5860000DF4628 /* MyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842E567123C5860000DF4628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		842E567323C5860000DF4628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +80,15 @@
 				841E2D7423C8154B00CF440C /* SettingsNewNodeView.swift */,
 			);
 			path = SunburstDiagram;
+			sourceTree = "<group>";
+		};
+		841E2D7B23C9D1AE00CF440C /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				841E2D7C23C9D1F200CF440C /* AddTransactionsCell.swift */,
+				841E2D8223CA049500CF440C /* CategoryCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		842E566523C5860000DF4628 = {
@@ -107,6 +128,8 @@
 				842E568C23C5899300DF4628 /* ReportsViewController.swift */,
 				841E2D6B23C7351200CF440C /* TimelineTransactionsViewController.swift */,
 				841E2D6D23C811C500CF440C /* ReportHostingViewController.swift */,
+				841E2D7923C8C3DC00CF440C /* SelectCategoryTableViewController.swift */,
+				841E2D8023C9ED7100CF440C /* AddTransactionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -114,6 +137,7 @@
 		842E568F23C58A4600DF4628 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				841E2D7B23C9D1AE00CF440C /* TableCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +145,8 @@
 		842E569023C58A4F00DF4628 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				841E2D7E23C9D9F100CF440C /* Transaction.swift */,
+				841E2D8423CA0BDD00CF440C /* CategoryImages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,6 +308,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841E2D7F23C9D9F100CF440C /* Transaction.swift in Sources */,
+				841E2D7A23C8C3DC00CF440C /* SelectCategoryTableViewController.swift in Sources */,
 				841E2D6C23C7351200CF440C /* TimelineTransactionsViewController.swift in Sources */,
 				841E2D6E23C811C500CF440C /* ReportHostingViewController.swift in Sources */,
 				842E567E23C5860000DF4628 /* MyMoney.xcdatamodeld in Sources */,
@@ -291,8 +319,12 @@
 				842E568D23C5899300DF4628 /* ReportsViewController.swift in Sources */,
 				841E2D7323C8152700CF440C /* SettingsNodesView.swift in Sources */,
 				842E568B23C5894C00DF4628 /* TransactionsViewController.swift in Sources */,
+				841E2D8323CA049500CF440C /* CategoryCell.swift in Sources */,
 				841E2D7523C8154B00CF440C /* SettingsNewNodeView.swift in Sources */,
+				841E2D8523CA0BDD00CF440C /* CategoryImages.swift in Sources */,
+				841E2D8123C9ED7200CF440C /* AddTransactionViewController.swift in Sources */,
 				842E567423C5860000DF4628 /* SceneDelegate.swift in Sources */,
+				841E2D7D23C9D1F200CF440C /* AddTransactionsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
