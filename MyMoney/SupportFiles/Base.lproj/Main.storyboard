@@ -202,6 +202,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imageView" destination="xeo-Af-f1X" id="bqT-X4-pq8"/>
+                                    <outlet property="imageViewCategory" destination="xeo-Af-f1X" id="Gfb-hR-35x"/>
                                     <outlet property="labelCategory" destination="4F6-tR-WBX" id="yat-HW-Dyr"/>
                                 </connections>
                             </tableViewCell>

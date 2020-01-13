@@ -17,28 +17,57 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     let day:[String] = ["01/01/2020", "23/02/2020"]
     
     // TimelinePoint, Timeline back color, title, description, lineInfo, thumbnails, illustration
-    let data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [0:[
-            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
-        ], 1:[
-            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon"),
-            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon"),
-            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
-        ]]
+    var data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [0: []]
+    
+//    let data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [0:[
+//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
+//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
+//        ], 1:[
+//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
+//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon"),
+//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
+//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon"),
+//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
+//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
+//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
+//        ]]
+    
+    var db:DBHelper = DBHelper()
+    
+    var transactions:[Transaction] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSLog(">>>>> TimelineTransactionsViewController")
+//        data = [0:[(TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
+//                    (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
+//                    (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
+//                    (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
+//                ]]
+        
+        
+        db.insertTransaction(id: 1, categoryId: 1, amount: 100000, date: "11/01/2020")
+        db.insertTransaction(id: 2, categoryId: 2, amount: 200000, date: "12/01/2020")
+        db.insertTransaction(id: 3, categoryId: 2, amount: 200000, date: "12/01/2020")
+        db.insertTransaction(id: 4, categoryId: 3, amount: 300000, date: "13/01/2020")
+        
+        transactions = db.getTransactions()
+        
+        
+        var timelineObject = [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]()
+        for (index, transaction) in transactions.enumerated() {
+//            print(index, ":", transaction)
+            timelineObject.append((TimelinePoint(), UIColor.lightGray, String(transaction.amount), "Ăn trưa.", "Foods", nil, "Sun"))
+        }
+        data = [0: timelineObject]
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

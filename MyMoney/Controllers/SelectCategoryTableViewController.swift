@@ -12,20 +12,28 @@ class SelectCategoryTableViewController: UITableViewController {
     
     @IBOutlet var tbView: UITableView!
     
-    var categoryImages : [UIImage] = [#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house"),#imageLiteral(resourceName: "sailing"),#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house"),#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house"),#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house"),]
+    var categoryImages : [UIImage] = [#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house"),#imageLiteral(resourceName: "sailing"),#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house"),#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house"),#imageLiteral(resourceName: "walking"),#imageLiteral(resourceName: "poultry"),#imageLiteral(resourceName: "eating"),#imageLiteral(resourceName: "house")]
+    
     
     // These strings will be the data for the table view cells
-    let animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
+//    let animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
     
     // These are the colors of the square views in our table view cells.
     // In a real project you might use UIImages.
-    let colors = [UIColor.blue, UIColor.yellow, UIColor.magenta, UIColor.red, UIColor.brown]
+//    let colors = [UIColor.blue, UIColor.yellow, UIColor.magenta, UIColor.red, UIColor.brown]
 
     // Don't forget to enter this in IB also
     let cellReuseIdentifier = "cell"
+    
+    //For get categories list from sqlite
+    var db:DBHelper = DBHelper()
+    
+    var categories:[Category] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSLog(">>>>> SelectCategoryTableViewController")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,6 +43,22 @@ class SelectCategoryTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        categories = db.getCategories()
+        
+        
+        // Insert data testing
+        db.insertCategory(id: 1, name: "Foods", icon: "049-business and finance")
+        db.insertCategory(id: 2, name: "Transport", icon: "030-bill")
+        db.insertCategory(id: 3, name: "Shopping", icon: "035-bank")
+        db.insertCategory(id: 4, name: "Other", icon: "038-business")
+        
+        for (index, category) in categories.enumerated() {
+            print(index, ":", category)
+//            categories.append(Category(id: category.id, name: category.name, icon: category.icon))
+            
+        }
+        
     }
 
     // MARK: - Table view data source
@@ -50,7 +74,7 @@ class SelectCategoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return animals.count
+        return categories.count
     }
 
     
@@ -58,9 +82,11 @@ class SelectCategoryTableViewController: UITableViewController {
         let cell:CategoryCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CategoryCell
 
 //        NSLog(String(indexPath.row))
-        cell.imageViewCategory?.image! = #imageLiteral(resourceName: "sailing")
+//        cell.imageViewCategory.image = UIImage(named: "016-bill")
         
-        cell.labelCategory.text = self.animals[indexPath.row]
+//        cell.labelCategory.text = self.animals[indexPath.row]
+        cell.labelCategory.text = categories[indexPath.row].name
+        cell.imageViewCategory.image = UIImage(named: categories[indexPath.row].icon)
 
         return cell
     }
@@ -115,5 +141,8 @@ class SelectCategoryTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
 
 }
+

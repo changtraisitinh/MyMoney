@@ -8,8 +8,17 @@
 
 import UIKit
 
-struct Product {
- var productName : String
- var productImage : UIImage
- var productDesc : String
+class Transaction {
+    var id : Int
+    var categoryId : Int
+    var amount : Int
+    var date: String
+
+    
+    init(id : Int, categoryId: Int, amount: Int, date: String) {
+        self.id = id
+        self.categoryId = categoryId
+        self.amount = amount
+        self.date = date
+    }
 }

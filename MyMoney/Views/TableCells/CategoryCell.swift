@@ -30,15 +30,17 @@ class CategoryCell: UITableViewCell {
         
         // reset (hide) the checkmark label
         self.labelCategory.isHidden = true
-
+        self.imageViewCategory.isHidden = true
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        if(self.imageView?.image != nil){
-
-            
-        }
+//        if(self.imageView?.image != nil){
+//
+//
+//        } else {
+//            NSLog("")
+//        }
     }
 }
