@@ -29,6 +29,7 @@ class SelectCategoryTableViewController: UITableViewController {
     var db:DBHelper = DBHelper()
     
     var categories:[Category] = []
+    var categorySelected: Category? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +95,14 @@ class SelectCategoryTableViewController: UITableViewController {
     // method to run when table view cell is tapped
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        
+        
+        let categorySelected: Category = categories[indexPath.row]
+        
+        UserDefaults.standard.set(categorySelected.id, forKey: "categorySelected_id")
+        UserDefaults.standard.set(categorySelected.name, forKey: "categorySelected_name")
+        UserDefaults.standard.set(categorySelected.icon, forKey: "categorySelected_icon")
+        self.navigationController?.popViewController(animated: true)
     }
     
 

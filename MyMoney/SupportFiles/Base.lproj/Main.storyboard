@@ -250,10 +250,10 @@
                                                 </constraints>
                                                 <state key="normal" title="VND"/>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Amf-9D-awg">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJv-O7-3MY">
                                                 <rect key="frame" x="70" y="0.0" width="230" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -279,7 +279,7 @@
                                                     <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="c2u-ON-bif" kind="show" id="fgX-Nq-aIL"/>
+                                                    <segue destination="c2u-ON-bif" kind="show" identifier="" id="fgX-Nq-aIL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -317,6 +317,10 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnAddCategory" destination="1JA-XD-mhJ" id="17f-Ao-fhh"/>
+                        <outlet property="imageViewCategory" destination="F3Y-uX-vc6" id="fCg-59-h7x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cez-Zt-gqV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
