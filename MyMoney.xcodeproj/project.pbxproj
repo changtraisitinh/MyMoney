@@ -20,6 +20,7 @@
 		841E2D8323CA049500CF440C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2D8223CA049500CF440C /* CategoryCell.swift */; };
 		841E2E1A23CC086200CF440C /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2E1923CC086200CF440C /* DBHelper.swift */; };
 		841E2E1C23CC091B00CF440C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E2E1B23CC091B00CF440C /* Category.swift */; };
+		8429927823CD54FE0072A182 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429927723CD54FE0072A182 /* StringUtils.swift */; };
 		842E567223C5860000DF4628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567123C5860000DF4628 /* AppDelegate.swift */; };
 		842E567423C5860000DF4628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E567323C5860000DF4628 /* SceneDelegate.swift */; };
 		842E567B23C5860000DF4628 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842E567923C5860000DF4628 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		841E2D8223CA049500CF440C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		841E2E1923CC086200CF440C /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		841E2E1B23CC091B00CF440C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8429927723CD54FE0072A182 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		842E566E23C5860000DF4628 /* MyMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842E567123C5860000DF4628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		842E567323C5860000DF4628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 				841E2E1923CC086200CF440C /* DBHelper.swift */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		8429927623CD54DE0072A182 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8429927723CD54FE0072A182 /* StringUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		842E566523C5860000DF4628 = {
@@ -179,6 +189,7 @@
 		842E569323C5E68300DF4628 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8429927623CD54DE0072A182 /* Utils */,
 				841E2E1823CC084B00CF440C /* DB */,
 				841E2D6F23C814D600CF440C /* SunburstDiagram */,
 				842E569423C5E6A800DF4628 /* UIView+constraints.swift */,
@@ -327,6 +338,7 @@
 				841E2E1C23CC091B00CF440C /* Category.swift in Sources */,
 				841E2D7123C8150600CF440C /* SettingsView.swift in Sources */,
 				842E569523C5E6A800DF4628 /* UIView+constraints.swift in Sources */,
+				8429927823CD54FE0072A182 /* StringUtils.swift in Sources */,
 				842E567223C5860000DF4628 /* AppDelegate.swift in Sources */,
 				842E568D23C5899300DF4628 /* ReportsViewController.swift in Sources */,
 				841E2D7323C8152700CF440C /* SettingsNodesView.swift in Sources */,

@@ -11,14 +11,23 @@ import UIKit
 class AddTransactionViewController: UIViewController {
 
     @IBOutlet weak var btnAddCategory: UIButton!
+    
+    @IBOutlet weak var txtAmount: UITextField!
+    
     @IBOutlet weak var imageViewCategory: UIImageView!
+    
+    @IBOutlet weak var txtDescription: UITextField!
+    
     @IBAction func btnNavCancel(_ sender: Any) {
-        
-        navigationController?.popViewController(animated: true)
+         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
 
     }
     
+    
+    // MARK: - Initial
+    var db:DBHelper = DBHelper()
+    let categorySelected: Category = Category(id: 0, name: "", icon: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +44,22 @@ class AddTransactionViewController: UIViewController {
         let categorySelected_name = UserDefaults.standard.string(forKey: "categorySelected_name")
         let categorySelected_icon = UserDefaults.standard.string(forKey: "categorySelected_icon")
         
+        if (categorySelected_id != nil) {
+            categorySelected.id = Int(categorySelected_id!)!
+            categorySelected.name = categorySelected_name!
+            categorySelected.icon = categorySelected_icon!
+        }
+        
+        
+        
         btnAddCategory.setTitle(categorySelected_name ?? "Select category" ,for: .normal)
         imageViewCategory.image = UIImage(named: categorySelected_icon ?? "027-bills")
         
         NSLog(">>> id: \(categorySelected_id) | name: \(categorySelected_name) | icon: \(categorySelected_icon)")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NSLog("viewDidDisappear")
     }
     
 
@@ -55,6 +76,22 @@ class AddTransactionViewController: UIViewController {
     @objc func action(sender: UIBarButtonItem) {
         // Function body goes here
         NSLog("Saved ....")
+        
+        let transactionCount1: Int = db.getTransactions().count
+        NSLog(">>> Before: \(transactionCount1)")
+        let currentDate:String = Date().string(format: "dd/MM/yyyy")
+        NSLog("currentDate: \(currentDate)")
+        db.insertTransaction(id: transactionCount1 + 1, categoryId: categorySelected.id, amount: Int(txtAmount.text ?? "0") ?? 0, date: currentDate, description: txtDescription.text!)
+        
+        
+        
+        let transactionCount2: Int = db.getTransactions().count
+        NSLog(">>> After: \(transactionCount2)")
+        
+        performSegue(withIdentifier: "unwindToTimelineTransactionsView", sender: self)
+        
+        dismiss(animated: true, completion: nil)
+        
     }
 
 }

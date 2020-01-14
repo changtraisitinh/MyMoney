@@ -13,12 +13,14 @@ class Transaction {
     var categoryId : Int
     var amount : Int
     var date: String
+    var description: String
 
     
-    init(id : Int, categoryId: Int, amount: Int, date: String) {
+    init(id : Int, categoryId: Int, amount: Int, date: String, description: String) {
         self.id = id
         self.categoryId = categoryId
         self.amount = amount
         self.date = date
+        self.description = description
     }
 }

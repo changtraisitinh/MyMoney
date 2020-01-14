@@ -14,10 +14,12 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     
     var floaty = Floaty()
 
-    let day:[String] = ["01/01/2020", "23/02/2020"]
+    // let days:[String] = ["01/01/2020", "23/02/2020"]
+    var days:[String] = []
     
     // TimelinePoint, Timeline back color, title, description, lineInfo, thumbnails, illustration
-    var data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [0: []]
+//    var data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [:]
+    var data = [Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]]()
     
 //    let data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [0:[
 //            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
@@ -54,20 +56,8 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
 //                ]]
         
         
-        db.insertTransaction(id: 1, categoryId: 1, amount: 100000, date: "11/01/2020")
-        db.insertTransaction(id: 2, categoryId: 2, amount: 200000, date: "12/01/2020")
-        db.insertTransaction(id: 3, categoryId: 2, amount: 200000, date: "12/01/2020")
-        db.insertTransaction(id: 4, categoryId: 3, amount: 300000, date: "13/01/2020")
+        loadTransactions()
         
-        transactions = db.getTransactions()
-        
-        
-        var timelineObject = [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]()
-        for (index, transaction) in transactions.enumerated() {
-//            print(index, ":", transaction)
-            timelineObject.append((TimelinePoint(), UIColor.lightGray, String(transaction.amount), "Ăn trưa.", "Foods", nil, "Sun"))
-        }
-        data = [0: timelineObject]
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -87,13 +77,31 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
         floaty.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
         layoutFAB()
 //        floaty.addDragging()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NSLog("viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        NSLog("viewDidAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NSLog("viewWillDisappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NSLog("viewDidDisappear")
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        print("dismiss")
     }
     
     // MARK: - Table view data source
@@ -112,8 +120,7 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//         return "Day " + String(describing: section + 1)
-        return day[section]
+        return days[section]
      }
 
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -219,7 +226,7 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     */
     
     
-    // MARK: - Floaty
+    // MARK: - Floaty Layouts
     func layoutFAB() {
       let item = FloatyItem()
       item.hasShadow = false
@@ -247,7 +254,7 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
 //      floaty.addItem(item: item)
 //      floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
       floaty.paddingX = self.view.frame.width/2 - floaty.frame.width*3
-      floaty.paddingY = 100
+      floaty.paddingY = 150
       floaty.fabDelegate = self
       
       self.view.addSubview(floaty)
@@ -257,8 +264,6 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     // MARK: - Floaty Delegate Methods
     func floatyWillOpen(_ floaty: Floaty) {
       print("Floaty Will Open")
-        
-        
     }
     
     func floatyDidOpen(_ floaty: Floaty) {
@@ -273,12 +278,42 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
       print("Floaty Did Close")
     }
     
-//    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        if velocity.y > 0 {
-//            floaty.isHidden = true
-//        } else {
-//            floaty.isHidden = false
-//        }
-//    }
-
+    @IBAction func unwindToTimelineTransactionsView(segue:UIStoryboardSegue) {
+        NSLog("unwindToTimelineTransactionsView")
+        
+        loadTransactions()
+        tableView.reloadData()
+    }
+    
+    // MARK: - Custom Functions
+    func loadTransactions() {
+//        db.insertTransaction(id: 1, categoryId: 1, amount: 100000, date: "11/01/2020", description: "")
+//        db.insertTransaction(id: 2, categoryId: 2, amount: 200000, date: "12/01/2020", description: "")
+//        db.insertTransaction(id: 3, categoryId: 2, amount: 200000, date: "13/01/2020", description: "")
+//        db.insertTransaction(id: 4, categoryId: 3, amount: 300000, date: "14/01/2020", description: "")
+        
+        transactions = db.getTransactions()
+        
+        days = db.getTransactionsGroupByDay()
+        
+        for (index, day) in days.enumerated() {
+            
+            var timelineObject = [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]()
+            for (index, transaction) in transactions.enumerated() {
+                print(index, ":", transaction, ":", transaction.categoryId)
+                
+                if (day == transaction.date) {
+                    let category = db.getCategoriesById(categoryId: transaction.categoryId)
+                    
+                    print(index, ":", category, ":", category.id, ":", category.name)
+                    
+                    timelineObject.append((TimelinePoint(), UIColor.darkGray, String(transaction.amount), String(transaction.description), category.name, [], category.icon))
+                }
+                
+                
+            }
+            
+            data[index] = timelineObject
+        }
+    }
 }

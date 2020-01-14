@@ -231,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VcP-TW-CSy">
-                                <rect key="frame" x="57" y="20" width="300" height="113.5"/>
+                                <rect key="frame" x="57" y="20" width="300" height="163.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNI-u5-kx5">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="13.5"/>
@@ -250,10 +250,10 @@
                                                 </constraints>
                                                 <state key="normal" title="VND"/>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJv-O7-3MY">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJv-O7-3MY">
                                                 <rect key="frame" x="70" y="0.0" width="230" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -273,6 +273,7 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JA-XD-mhJ">
                                                 <rect key="frame" x="50" y="0.0" width="250" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="220" minY="0.0" maxX="10" maxY="0.0"/>
                                                 <state key="normal" title="Select category" image="arrowtriangle.right.circle.fill" catalog="system">
@@ -283,9 +284,28 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="1JA-XD-mhJ" firstAttribute="leading" secondItem="F3Y-uX-vc6" secondAttribute="trailing" constant="10" id="RmK-EC-cPB"/>
-                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XS-X4-RpX">
+                                        <rect key="frame" x="0.0" y="113.5" width="300" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icShare" translatesAutoresizingMaskIntoConstraints="NO" id="k4T-j8-5Nb">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="GIp-fO-fDS"/>
+                                                    <constraint firstAttribute="width" constant="50" id="zlX-Ce-p1a"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6an-Da-dAj">
+                                                <rect key="frame" x="50" y="0.0" width="250" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6an-Da-dAj" secondAttribute="height" multiplier="5:1" id="8kx-n2-5Fs"/>
+                                                    <constraint firstAttribute="height" constant="50" id="Gq7-O9-amZ"/>
+                                                    <constraint firstAttribute="width" constant="250" id="I5O-xq-OI7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
@@ -315,14 +335,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                             </button>
+                            <connections>
+                                <segue destination="VQ0-Fv-RQl" kind="unwind" identifier="unwindToTimelineTransactionsView" unwindAction="unwindToTimelineTransactionsViewWithSegue:" id="H03-Jt-u4S"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnAddCategory" destination="1JA-XD-mhJ" id="17f-Ao-fhh"/>
                         <outlet property="imageViewCategory" destination="F3Y-uX-vc6" id="fCg-59-h7x"/>
+                        <outlet property="txtAmount" destination="IJv-O7-3MY" id="Ar0-uI-So7"/>
+                        <outlet property="txtDescription" destination="6an-Da-dAj" id="0n4-eM-yWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cez-Zt-gqV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="VQ0-Fv-RQl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1489.8550724637682" y="1721.6517857142856"/>
         </scene>
@@ -334,5 +360,6 @@
         <image name="Transactions" width="29" height="29"/>
         <image name="arrowtriangle.right.circle.fill" catalog="system" width="64" height="60"/>
         <image name="icMap" width="24" height="24"/>
+        <image name="icShare" width="24" height="24"/>
     </resources>
 </document>
