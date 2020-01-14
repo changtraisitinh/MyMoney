@@ -126,6 +126,61 @@ class DBHelper {
             return days
         }
     
+    func getTransactionsGroupByCategory() -> [TransactionsGroupByCategory] {
+        let queryStatementString = "SELECT categoryId, count(1) as quantity FROM transactions GROUP BY categoryId;"
+        var queryStatement: OpaquePointer? = nil
+        var transactions : [TransactionsGroupByCategory] = []
+        
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let categoryId = sqlite3_column_int(queryStatement, 0)
+                let quantity = sqlite3_column_int(queryStatement, 1)
+                
+                transactions.append(TransactionsGroupByCategory(categoryId: Int(categoryId), quantity: Int(quantity)))
+                
+//                NSLog(">>> categoryId: \(categoryId) | quantity: \(quantity)")
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return transactions
+    }
+    
+    func getTransactionsAmountSummary() -> Int32 {
+        let queryStatementString = "SELECT SUM(amount) FROM transactions;"
+        var queryStatement: OpaquePointer? = nil
+        var summary: Int32 = 0
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                summary = sqlite3_column_int(queryStatement, 0)
+                
+//                NSLog(">>> summary: \(summary)")
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return summary
+    }
+    
+    func getTransactionsQuantity() -> Int32 {
+        let queryStatementString = "SELECT COUNT(1) FROM transactions;"
+        var queryStatement: OpaquePointer? = nil
+        var summary: Int32 = 0
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                summary = sqlite3_column_int(queryStatement, 0)
+                
+//                NSLog(">>> summary: \(summary)")
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return summary
+    }
+    
     func deleteTransactionByID(id:Int) {
         let deleteStatementStirng = "DELETE FROM transactions WHERE Id = ?;"
         var deleteStatement: OpaquePointer? = nil
@@ -197,8 +252,8 @@ class DBHelper {
                 let icon = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                 
                 categories.append(Category(id: Int(id), name: name, icon: icon))
-                print("Query Result:")
-                print(">>> \(id) | \(name) | \(icon)")
+//                print("Query Result:")
+//                print(">>> \(id) | \(name) | \(icon)")
             }
         } else {
             print("SELECT statement could not be prepared")
@@ -219,11 +274,10 @@ class DBHelper {
                 let icon = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                 
                 
-                print("Query Result for ID \(categoryId):")
-                print(">>> \(id) | \(name) | \(icon)")
+//                print("Query Result for ID \(categoryId):")
+//                print(">>> \(id) | \(name) | \(icon)")
                 
                 if(categoryId == id) {
-                    print(">>> OK: \(id) | \(categoryId)")
                     category = Category(id: Int(id), name: name, icon: icon)
                     sqlite3_finalize(queryStatement)
                     return category

@@ -15,6 +15,8 @@ struct RootView: View {
     @ObservedObject var configurationIncome: SunburstConfiguration
     @ObservedObject var configurationExpense: SunburstConfiguration
     
+    @State var netIncome: Int32 = 0
+    
     var body: some View {
         AnyView(GeometryReader { geometry -> AnyView in
             return AnyView(
@@ -23,13 +25,13 @@ struct RootView: View {
                         VStack(spacing: 0) {
                             Spacer().frame(height: 10)
                             Text("Opening balance   ").foregroundColor(.gray)
-                            Text("-100,000,000 ₫   ")
+                            Text("\(self.netIncome * -1) ₫   ")
                         }
                         Divider()
                         VStack(spacing: 0) {
                             Spacer().frame(height: 10)
                             Text("   Ending balance").foregroundColor(.gray)
-                            Text("   99,000,000 ₫")
+                            Text("   \(self.netIncome + 200000) ₫")
                         }
                     }.frame(height: 70)
                     
@@ -38,7 +40,7 @@ struct RootView: View {
                     VStack(spacing: 0) {
                         Spacer().frame(height: 10)
                         Text("Net Income").foregroundColor(.gray)
-                        Text("999,000,000 ₫")
+                        Text("\(self.netIncome) ₫")
                         Spacer().frame(height: 10)
                     }
                     
@@ -55,7 +57,7 @@ struct RootView: View {
                         VStack(spacing: 0) {
                             Spacer().frame(height: 50)
                             Text("Income").foregroundColor(.gray)
-                            Text("10,000,000 ₫")
+                            Text("\(self.netIncome) ₫")
                             SunburstView(configuration: self.configurationIncome)
                         }
                         Divider().edgesIgnoringSafeArea(.leading)
@@ -63,7 +65,7 @@ struct RootView: View {
                         VStack(spacing: 0) {
                             Spacer().frame(height: 50)
                             Text("Expense").foregroundColor(.gray)
-                            Text("9,000,000 ₫")
+                            Text("\(self.netIncome - 10000) ₫")
                             SunburstView(configuration: self.configurationExpense)
                         }
                         
@@ -102,19 +104,24 @@ struct RootView: View {
 }
 
 class ReportHostingViewController: UIHostingController<RootView> {
-
-    let configurationIncome = SunburstConfiguration(nodes: [
-        Node(name: "Walking",
-             showName: false,
-             image: UIImage(named: "walking"),
-             value: 10.0,
-             backgroundColor: .systemBlue),
-        Node(name: "Home",
-             showName: false,
-             image: UIImage(named: "house"),
-             value: 75.0,
-             backgroundColor: .systemTeal)
-    ])
+    
+    var db:DBHelper = DBHelper()
+    var transactions:[TransactionsGroupByCategory] = []
+    
+//    let configurationIncome = SunburstConfiguration(nodes: [
+//        Node(name: "Walking",
+//             showName: false,
+//             image: UIImage(named: "walking"),
+//             value: 10.0,
+//             backgroundColor: .systemBlue),
+//        Node(name: "Home",
+//             showName: false,
+//             image: UIImage(named: "house"),
+//             value: 75.0,
+//             backgroundColor: .systemTeal)
+//    ])
+    
+    var configurationIncome = SunburstConfiguration(nodes: [])
     
     let configurationExpense = SunburstConfiguration(nodes: [
         Node(name: "Restaurant",
@@ -143,31 +150,42 @@ class ReportHostingViewController: UIHostingController<RootView> {
     
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder,rootView: RootView(configurationIncome: configurationIncome, configurationExpense: configurationExpense));
+        
+        // MARK: - Load Pie Chart
+        transactions = db.getTransactionsGroupByCategory()
+        let transactionsQuantity = db.getTransactionsQuantity()
+        
+        var nodes: [Node] = []
+        for (index, transaction) in transactions.enumerated() {
+            
+            
+            let category = db.getCategoriesById(categoryId: transaction.categoryId)
+            
+            let percent: Double = Double((transaction.quantity * 100) / Int(transactionsQuantity))
+            
+            print(">>> ", index, ":", transaction.categoryId, ":", transaction.quantity, ":", transactionsQuantity, ":", percent)
+            
+            nodes.append(Node(name: category.name,
+                            showName: true,
+                            image: UIImage(named: category.icon),
+                            value: percent,
+                            backgroundColor: UIColor.random()))
+        }
+        
+        configurationIncome = SunburstConfiguration(nodes: nodes)
+        
+        let netIncomeSummary: Int32 = db.getTransactionsAmountSummary()
+        
+        super.init(coder: coder,rootView: RootView(configurationIncome: configurationIncome, configurationExpense: configurationExpense, netIncome: netIncomeSummary));
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
 }
-
-
-//class ReportHostingViewController: UIHostingController<RootView> {
-//
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder,rootView: RootView());
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-//}
-
-//struct RootView: View {
-//  var body: some View {
-//      VStack {
-//          Text("Second View").font(.system(size: 36))
-//          Text("Loaded by SecondView").font(.system(size: 14))
-//      }
-//  }
-//}

@@ -42,25 +42,28 @@ class SelectCategoryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        categories = db.getCategories()
-        
-        
         // Insert data testing
         db.insertCategory(id: 1, name: "Foods", icon: "049-business and finance")
         db.insertCategory(id: 2, name: "Transport", icon: "030-bill")
         db.insertCategory(id: 3, name: "Shopping", icon: "035-bank")
         db.insertCategory(id: 4, name: "Other", icon: "038-business")
         
+        categories = db.getCategories()
+                
         for (index, category) in categories.enumerated() {
             print(index, ":", category)
 //            categories.append(Category(id: category.id, name: category.name, icon: category.icon))
             
         }
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
+        
     }
+    
+    
 
     // MARK: - Table view data source
 

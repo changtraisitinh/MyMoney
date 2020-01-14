@@ -24,3 +24,30 @@ class Transaction {
         self.description = description
     }
 }
+
+class TransactionsGroupByCategory {
+    var categoryId : Int
+    var quantity : Int
+    
+    init(categoryId: Int, quantity: Int) {
+        self.categoryId = categoryId
+        self.quantity = quantity
+    }
+}
+
+class TransactionsSummary {
+    
+    var openingBalance: Int
+    var endingBalance: Int
+    var netIncome: Int
+    var income : Int
+    var expense : Int
+    
+    init(openingBalance: Int, endingBalance: Int, netIncome: Int, income : Int, expense : Int) {
+        self.openingBalance = openingBalance
+        self.endingBalance = endingBalance
+        self.netIncome = netIncome
+        self.income = income
+        self.expense = expense
+    }
+}

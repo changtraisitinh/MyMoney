@@ -53,8 +53,11 @@ class AddTransactionViewController: UIViewController {
         
         
         btnAddCategory.setTitle(categorySelected_name ?? "Select category" ,for: .normal)
-        imageViewCategory.image = UIImage(named: categorySelected_icon ?? "027-bills")
-        
+        if(categorySelected_name != nil) {
+            imageViewCategory.image = UIImage(named: categorySelected_icon ?? "027-bills")
+            
+        }
+
         NSLog(">>> id: \(categorySelected_id) | name: \(categorySelected_name) | icon: \(categorySelected_icon)")
     }
     

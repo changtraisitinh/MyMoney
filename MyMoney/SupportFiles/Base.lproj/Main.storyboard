@@ -248,6 +248,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="Hw0-zg-UAs"/>
                                                     <constraint firstAttribute="width" constant="70" id="PHo-N8-ctl"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <state key="normal" title="VND"/>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJv-O7-3MY">
@@ -264,8 +265,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOX-lp-kDx">
                                         <rect key="frame" x="0.0" y="63.5" width="300" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icMap" translatesAutoresizingMaskIntoConstraints="NO" id="F3Y-uX-vc6">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.stack.3d.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="F3Y-uX-vc6">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="Vz4-jE-kPZ"/>
                                                     <constraint firstAttribute="height" constant="50" id="qhQ-eh-eoG"/>
@@ -288,8 +289,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XS-X4-RpX">
                                         <rect key="frame" x="0.0" y="113.5" width="300" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icShare" translatesAutoresizingMaskIntoConstraints="NO" id="k4T-j8-5Nb">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quote.bubble" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="k4T-j8-5Nb">
+                                                <rect key="frame" x="0.0" y="0.5" width="50" height="49.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="GIp-fO-fDS"/>
                                                     <constraint firstAttribute="width" constant="50" id="zlX-Ce-p1a"/>
@@ -359,7 +360,7 @@
         <image name="Reports" width="29" height="29"/>
         <image name="Transactions" width="29" height="29"/>
         <image name="arrowtriangle.right.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="icMap" width="24" height="24"/>
-        <image name="icShare" width="24" height="24"/>
+        <image name="quote.bubble" catalog="system" width="64" height="54"/>
+        <image name="square.stack.3d.up" catalog="system" width="64" height="62"/>
     </resources>
 </document>

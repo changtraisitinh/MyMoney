@@ -48,7 +48,6 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSLog(">>>>> TimelineTransactionsViewController")
 //        data = [0:[(TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
 //                    (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
 //                    (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
@@ -85,23 +84,19 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        NSLog("viewWillAppear")
+//        NSLog("viewWillAppear")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        NSLog("viewDidAppear")
+//        NSLog("viewDidAppear")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        NSLog("viewWillDisappear")
+//        NSLog("viewWillDisappear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        NSLog("viewDidDisappear")
-    }
-    
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        print("dismiss")
+//        NSLog("viewDidDisappear")
     }
     
     // MARK: - Table view data source
@@ -300,12 +295,9 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
             
             var timelineObject = [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]()
             for (index, transaction) in transactions.enumerated() {
-                print(index, ":", transaction, ":", transaction.categoryId)
                 
                 if (day == transaction.date) {
                     let category = db.getCategoriesById(categoryId: transaction.categoryId)
-                    
-                    print(index, ":", category, ":", category.id, ":", category.name)
                     
                     timelineObject.append((TimelinePoint(), UIColor.darkGray, String(transaction.amount), String(transaction.description), category.name, [], category.icon))
                 }
