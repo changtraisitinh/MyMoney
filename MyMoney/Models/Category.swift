@@ -23,3 +23,10 @@ class Category {
     }
 
 }
+
+
+public enum ECategoryType :String {
+    case EXPENSE
+    case INCOME
+    func value() ->String { return self.rawValue }
+}

@@ -286,4 +286,25 @@ class DBHelper {
         sqlite3_finalize(queryStatement)
         return category
     }
+    
+    func getCategoriesByType(type: String) -> [Category] {
+        let queryStatementString = "SELECT * FROM categories WHERE type = ?;"
+        var queryStatement: OpaquePointer? = nil
+        var categories : [Category] = []
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(queryStatement, 1, (type as NSString).utf8String, -1, nil)
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id = sqlite3_column_int(queryStatement, 0)
+                let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let icon = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let type = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                
+                categories.append(Category(id: Int(id), name: name, icon: icon, type: type))
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return categories
+    }
 }
