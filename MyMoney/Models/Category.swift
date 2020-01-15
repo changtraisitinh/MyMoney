@@ -13,11 +13,13 @@ class Category {
     var id : Int = 0
     var name : String = ""
     var icon : String = ""
+    var type : String = ""
     
-    init(id: Int, name: String, icon: String) {
+    init(id: Int, name: String, icon: String, type: String) {
         self.id = id
         self.name = name
         self.icon = icon
+        self.type = type
     }
 
 }

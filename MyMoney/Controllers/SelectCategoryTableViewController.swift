@@ -43,10 +43,26 @@ class SelectCategoryTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         // Insert data testing
-        db.insertCategory(id: 1, name: "Foods", icon: "049-business and finance")
-        db.insertCategory(id: 2, name: "Transport", icon: "030-bill")
-        db.insertCategory(id: 3, name: "Shopping", icon: "035-bank")
-        db.insertCategory(id: 4, name: "Other", icon: "038-business")
+        // INCOME Category
+        db.insertCategory(id: 1, name: "Food & Beverage", icon: "049-business and finance", type: "INCOME")
+        db.insertCategory(id: 2, name: "Shopping", icon: "030-bill", type: "INCOME")
+        db.insertCategory(id: 3, name: "Transportation", icon: "035-bank", type: "INCOME")
+        db.insertCategory(id: 4, name: "Family", icon: "038-business", type: "INCOME")
+        db.insertCategory(id: 5, name: "Others", icon: "038-business", type: "INCOME")
+        db.insertCategory(id: 6, name: "Entertainment", icon: "038-business", type: "INCOME")
+        db.insertCategory(id: 7, name: "Friends & Lover", icon: "038-business", type: "INCOME")
+        db.insertCategory(id: 8, name: "Health & Fitness", icon: "038-business", type: "INCOME")
+        db.insertCategory(id: 9, name: "Travel", icon: "038-business", type: "INCOME")
+        db.insertCategory(id: 10, name: "Investment", icon: "038-business", type: "INCOME")
+        db.insertCategory(id: 11, name: "Education", icon: "038-business", type: "INCOME")
+        
+        // EXPENSE Category
+        db.insertCategory(id: 1, name: "Gifts", icon: "049-business and finance", type: "EXPENSE")
+        db.insertCategory(id: 2, name: "Award", icon: "049-business and finance", type: "EXPENSE")
+        db.insertCategory(id: 3, name: "Interest Money", icon: "049-business and finance", type: "EXPENSE")
+        db.insertCategory(id: 4, name: "Salary", icon: "049-business and finance", type: "EXPENSE")
+        db.insertCategory(id: 5, name: "Selling", icon: "049-business and finance", type: "EXPENSE")
+        db.insertCategory(id: 6, name: "Others", icon: "049-business and finance", type: "EXPENSE")
         
         categories = db.getCategories()
                 
@@ -58,37 +74,20 @@ class SelectCategoryTableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
-        
+        //tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
-    
-
     // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return animals.count
-//    }
-//    
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return animals.count
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return categories.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:CategoryCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! CategoryCell
 
-//        NSLog(String(indexPath.row))
-//        cell.imageViewCategory.image = UIImage(named: "016-bill")
-        
-//        cell.labelCategory.text = self.animals[indexPath.row]
         cell.labelCategory.text = categories[indexPath.row].name
         cell.imageViewCategory.image = UIImage(named: categories[indexPath.row].icon)
 

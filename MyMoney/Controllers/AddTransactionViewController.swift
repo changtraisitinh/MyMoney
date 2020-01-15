@@ -27,7 +27,7 @@ class AddTransactionViewController: UIViewController {
     
     // MARK: - Initial
     var db:DBHelper = DBHelper()
-    let categorySelected: Category = Category(id: 0, name: "", icon: "")
+    let categorySelected: Category = Category(id: 0, name: "", icon: "", type: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()

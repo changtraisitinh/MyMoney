@@ -73,32 +73,6 @@ struct RootView: View {
 //                    SettingsView(configuration: self.configuration)
                 }
             )
-            
-            
-            
-            
-            
-//            if geometry.size.width <= geometry.size.height {
-//                return AnyView(
-//                    VStack(spacing: 0) {
-//                        SunburstView(configuration: self.configuration)
-//                        Divider()
-//                            .edgesIgnoringSafeArea(.all)
-//                        SettingsView(configuration: self.configuration)
-//                    }
-//                )
-//            }
-//            else {
-//                return AnyView(
-//                    HStack(spacing: 0) {
-//                        SunburstView(configuration: self.configuration)
-//                            .edgesIgnoringSafeArea(.all)
-//                        Divider()
-//                            .edgesIgnoringSafeArea(.all)
-////                        SettingsView(configuration: self.configuration)
-//                    }
-//                )
-//            }
         })
     }
 }
@@ -108,45 +82,9 @@ class ReportHostingViewController: UIHostingController<RootView> {
     var db:DBHelper = DBHelper()
     var transactions:[TransactionsGroupByCategory] = []
     
-//    let configurationIncome = SunburstConfiguration(nodes: [
-//        Node(name: "Walking",
-//             showName: false,
-//             image: UIImage(named: "walking"),
-//             value: 10.0,
-//             backgroundColor: .systemBlue),
-//        Node(name: "Home",
-//             showName: false,
-//             image: UIImage(named: "house"),
-//             value: 75.0,
-//             backgroundColor: .systemTeal)
-//    ])
-    
     var configurationIncome = SunburstConfiguration(nodes: [])
     
-    let configurationExpense = SunburstConfiguration(nodes: [
-        Node(name: "Restaurant",
-            showName: false,
-            image: UIImage(named: "eating"),
-            value: 30.0,
-            backgroundColor: .systemRed),
-        
-        Node(name: "Walking",
-             showName: false,
-             image: UIImage(named: "walking"),
-             value: 10.0,
-             backgroundColor: .systemBlue),
-        
-        Node(name: "Home",
-             showName: false,
-             image: UIImage(named: "house"),
-             value: 75.0,
-             backgroundColor: .systemTeal),
-        Node(name: "Shoping",
-            showName: false,
-            image: UIImage(named: "house"),
-            value: 5.0,
-            backgroundColor: .systemPink)
-    ])
+    var configurationExpense = SunburstConfiguration(nodes: [])
     
     
     required init?(coder: NSCoder) {
@@ -173,6 +111,7 @@ class ReportHostingViewController: UIHostingController<RootView> {
         }
         
         configurationIncome = SunburstConfiguration(nodes: nodes)
+        configurationExpense = SunburstConfiguration(nodes: nodes)
         
         let netIncomeSummary: Int32 = db.getTransactionsAmountSummary()
         

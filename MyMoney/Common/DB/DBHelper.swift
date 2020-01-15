@@ -199,7 +199,7 @@ class DBHelper {
     
     // MARK: - Categories
     func createTableCategories() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS categories (Id INTEGER PRIMARY KEY, name TEXT, icon TEXT);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS categories (Id INTEGER PRIMARY KEY, name TEXT, icon TEXT, type TEXT);"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK
         {
@@ -215,7 +215,7 @@ class DBHelper {
         sqlite3_finalize(createTableStatement)
     }
     
-    func insertCategory(id: Int, name: String, icon: String) {
+    func insertCategory(id: Int, name: String, icon: String, type: String) {
         let categories = getCategories()
         for p in categories {
             if p.id == id
@@ -223,12 +223,13 @@ class DBHelper {
                 return
             }
         }
-        let insertStatementString = "INSERT INTO categories (Id, name, icon) VALUES (?, ?, ?);"
+        let insertStatementString = "INSERT INTO categories (Id, name, icon, type) VALUES (?, ?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(insertStatement, 1, Int32(id))
             sqlite3_bind_text(insertStatement, 2, (name as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 3, (icon as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, (type as NSString).utf8String, -1, nil)
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully inserted row.")
@@ -250,10 +251,9 @@ class DBHelper {
                 let id = sqlite3_column_int(queryStatement, 0)
                 let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                 let icon = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let type = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 
-                categories.append(Category(id: Int(id), name: name, icon: icon))
-//                print("Query Result:")
-//                print(">>> \(id) | \(name) | \(icon)")
+                categories.append(Category(id: Int(id), name: name, icon: icon, type: type))
             }
         } else {
             print("SELECT statement could not be prepared")
@@ -265,20 +265,17 @@ class DBHelper {
     func getCategoriesById(categoryId: Int) -> Category {
         let queryStatementString = "SELECT * FROM categories WHERE id = ?;"
         var queryStatement: OpaquePointer? = nil
-        var category : Category = Category(id: 0, name: "", icon: "")
+        var category : Category = Category(id: 0, name: "", icon: "", type: "")
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(queryStatement, 1, Int32(categoryId))
             while sqlite3_step(queryStatement) == SQLITE_ROW {
                 let id = sqlite3_column_int(queryStatement, 0)
                 let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                 let icon = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
-                
-                
-//                print("Query Result for ID \(categoryId):")
-//                print(">>> \(id) | \(name) | \(icon)")
+                let type = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 
                 if(categoryId == id) {
-                    category = Category(id: Int(id), name: name, icon: icon)
+                    category = Category(id: Int(id), name: name, icon: icon, type: type)
                     sqlite3_finalize(queryStatement)
                     return category
                 }

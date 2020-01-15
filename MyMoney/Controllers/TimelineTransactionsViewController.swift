@@ -14,32 +14,9 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     
     var floaty = Floaty()
 
-    // let days:[String] = ["01/01/2020", "23/02/2020"]
     var days:[String] = []
     
-    // TimelinePoint, Timeline back color, title, description, lineInfo, thumbnails, illustration
-//    var data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [:]
     var data = [Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]]()
-    
-//    let data:[Int: [(TimelinePoint, UIColor, String, String, String?, [String]?, String?)]] = [0:[
-//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
-//        ], 1:[
-//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon"),
-//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon"),
-//            (TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-//            (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-//            (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
-//        ]]
     
     var db:DBHelper = DBHelper()
     
@@ -48,24 +25,13 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        data = [0:[(TimelinePoint(), UIColor.lightGray, "27.000 đ", "Ăn trưa.", "Foods", nil, "Sun"),
-//                    (TimelinePoint(), UIColor.lightGray, "50.000 đ", "Đổ xăng.", "Transportion", nil, "Sun"),
-//                    (TimelinePoint(color: UIColor.lightGray, filled: true), UIColor.lightGray, "30.000 đ", "Ăn trưa.", "Foods", ["Apple"], "Sun"),
-//                    (TimelinePoint(), UIColor.lightGray, "100.000 đ", "Mua card điện thoại.", "Others", nil, "Moon")
-//                ]]
+        // Config Float Action Button
+        layoutFAB()
+//        floaty.sticky = true // sticking to parent
+//        floaty.addDragging()
         
-        
-        loadTransactions()
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-//        let timelineTableViewCellNib = UINib(nibName: "TimelineTableViewCell", bundle: Bundle(for: TimelineTableViewCell.self))
-//        self.tableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
+        // Config Table View
+        tableView.tableFooterView = UIView(frame: .zero)
         
         let bundle = Bundle(for: TimelineTableViewCell.self)
         let nibUrl = bundle.url(forResource: "TimelineTableViewCell", withExtension: "bundle")
@@ -73,9 +39,17 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
             bundle: Bundle(url: nibUrl!)!)
         tableView.register(timelineTableViewCellNib, forCellReuseIdentifier: "TimelineTableViewCell")
         
-        floaty.sticky = true // sticking to parent UIScrollView(also UITableView, UICollectionView)
-        layoutFAB()
-//        floaty.addDragging()
+        
+        // Load data to binding table view
+        loadTransactions()
+        
+        // Show image no transactions when table view no data
+        if(days.count == 0) {
+            let imgNoTransaction = UIImage(named: "019-cloud")
+            let imageViewNoTransaction = UIImageView(image: imgNoTransaction!)
+            imageViewNoTransaction.center = self.view.center
+            view.addSubview(imageViewNoTransaction)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,23 +57,15 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        NSLog("viewWillAppear")
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
 //        NSLog("viewDidAppear")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-//        NSLog("viewWillDisappear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
 //        NSLog("viewDidDisappear")
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -165,61 +131,6 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
          print(sectionData[indexPath.row])
      }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     // MARK: - Floaty Layouts
     func layoutFAB() {
@@ -234,18 +145,15 @@ class TimelineTransactionsViewController: UITableViewController, FloatyDelegate 
         
       }
       
-      floaty.hasShadow = false
-//      floaty.addItem(title: "I got a title")
-//      floaty.addItem("", icon: UIImage(named: "icShare"))
-      floaty.addItem("Add transaction", icon: UIImage(named: "icMap")) { item in
-//        let alert = UIAlertController(title: "Hey", message: "I'm hungry...", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Me too", style: .default, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
+      floaty.hasShadow = true
+      floaty.addItem("Add transaction", icon: UIImage(named: "028-bank")) { item in
         
         let story = UIStoryboard(name: "Main", bundle: nil)
         let vc = story.instantiateViewController(withIdentifier: "navAddTransactions") as! UINavigationController
         self.present(vc, animated: true, completion: nil)
       }
+      floaty.addItem("Share your transactions ", icon: UIImage(named: "022-finger"))
+      floaty.addItem("Save to file", icon: UIImage(named: "048-archive"))
 //      floaty.addItem(item: item)
 //      floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
       floaty.paddingX = self.view.frame.width/2 - floaty.frame.width*3
